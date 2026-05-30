@@ -162,4 +162,4 @@ A built-in `sample_data/sample.csv` is included with 40 rows covering:
 
 **Priyabrat Dalbehera**  
 Senior Software Engineer — GenAI & AI Systems  
-[GitHub](https://github.com/iampriyabrat14) | [LinkedIn](https://linkedin.com/in/yourprofile)
+[GitHub](https://github.com/iampriyabrat14) | [LinkedIn](https://www.linkedin.com/in/priyabrat-dalbehera-p521/)
