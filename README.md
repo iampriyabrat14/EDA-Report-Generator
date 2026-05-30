@@ -80,7 +80,7 @@ EDA-Report-Generator/
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/EDA-Report-Generator.git
+git clone https://github.com/iampriyabrat14/EDA-Report-Generator.git
 cd EDA-Report-Generator
 ```
 
@@ -162,4 +162,4 @@ A built-in `sample_data/sample.csv` is included with 40 rows covering:
 
 **Priyabrat Dalbehera**  
 Senior Software Engineer — GenAI & AI Systems  
-[GitHub](https://github.com/yourusername) | [LinkedIn](https://linkedin.com/in/yourprofile)
+[GitHub](https://github.com/iampriyabrat14) | [LinkedIn](https://linkedin.com/in/yourprofile)
