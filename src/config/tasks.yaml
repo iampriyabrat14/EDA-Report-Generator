@@ -1,0 +1,48 @@
+profiling_task:
+  description: >
+    Load the CSV file from {file_path} and perform a complete data profiling.
+    Extract the shape, column names, data types, null counts, null percentages,
+    duplicate row count, memory usage, and a sample of the first 3 rows.
+    Return a structured summary of all findings.
+  expected_output: >
+    A detailed data profile report including shape, dtypes, null counts,
+    null percentages, duplicate count, memory usage, and sample rows.
+
+stats_task:
+  description: >
+    Perform statistical analysis on the numeric columns of the CSV file at {file_path}.
+    Calculate descriptive statistics (mean, median, std, min, max, quartiles),
+    skewness, kurtosis, outlier counts using Z-score method,
+    and identify highly correlated column pairs (correlation > 0.7).
+    Return all findings in a structured format.
+  expected_output: >
+    A complete statistical analysis report with descriptive stats, skewness,
+    kurtosis, outlier counts per column, and high correlation pairs.
+
+visualization_task:
+  description: >
+    Generate EDA charts for the CSV file at {file_path} using run_id {run_id}.
+    Create histograms and boxplots for each numeric column.
+    Create a correlation heatmap for all numeric columns.
+    Save all charts to the outputs/charts/ directory.
+    Return the list of saved chart file paths.
+  expected_output: >
+    A list of file paths for all saved charts including histograms,
+    boxplots, and the correlation heatmap.
+
+report_task:
+  description: >
+    Using the outputs from the data profiler, statistical analyst, and visualization expert,
+    write a comprehensive EDA report for the dataset at {file_path}.
+    The report must include:
+    - Dataset overview (shape, columns, memory)
+    - Data quality summary (nulls, duplicates)
+    - Statistical insights (distributions, skewness, outliers)
+    - Correlation findings
+    - List of generated charts
+    - Recommendations for data preprocessing and next steps
+    Return the full report as a well-structured markdown text.
+  expected_output: >
+    A complete, well-structured EDA report in markdown format covering
+    dataset overview, data quality, statistical insights, correlations,
+    chart references, and preprocessing recommendations.
