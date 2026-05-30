@@ -16,6 +16,74 @@ An AI-powered Automated Exploratory Data Analysis (EDA) tool built with **CrewAI
 
 ---
 
+## Visual Workflow
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│                        USER INPUT                                   │
+│                  Upload CSV  (Streamlit UI / CLI)                   │
+└───────────────────────────┬─────────────────────────────────────────┘
+                            │
+                            ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│                      CrewAI Orchestrator                            │
+│                  Sequential Multi-Agent Pipeline                    │
+└───────────────────────────┬─────────────────────────────────────────┘
+                            │
+          ┌─────────────────▼─────────────────┐
+          │         Agent 1                   │
+          │       Data Profiler               │
+          │  ─────────────────────────────    │
+          │  Tool  : DataLoaderTool           │
+          │  Output: Shape, Dtypes, Nulls,    │
+          │          Duplicates, Memory       │
+          └─────────────────┬─────────────────┘
+                            │
+          ┌─────────────────▼─────────────────┐
+          │         Agent 2                   │
+          │    Statistical Analyst            │
+          │  ─────────────────────────────    │
+          │  Tool  : StatsTool                │
+          │  Output: Mean, Std, Skewness,     │
+          │          Outliers, Correlations   │
+          └─────────────────┬─────────────────┘
+                            │
+          ┌─────────────────▼─────────────────┐
+          │         Agent 3                   │
+          │    Visualization Expert           │
+          │  ─────────────────────────────    │
+          │  Tool  : ChartTool                │
+          │  Output: Histograms, Boxplots,    │
+          │          Correlation Heatmap      │
+          └─────────────────┬─────────────────┘
+                            │
+          ┌─────────────────▼─────────────────┐
+          │         Agent 4                   │
+          │       Report Writer               │
+          │  ─────────────────────────────    │
+          │  Tool  : GPT-4o (LLM only)        │
+          │  Output: Full EDA Report          │
+          │          in Markdown              │
+          └─────────────────┬─────────────────┘
+                            │
+            ┌───────────────┴───────────────┐
+            ▼                               ▼
+┌───────────────────┐           ┌───────────────────┐
+│   HTML Report     │           │   PDF Report      │
+│  (Jinja2 Template)│           │  (xhtml2pdf)      │
+│  outputs/reports/ │           │  outputs/reports/ │
+└───────────────────┘           └───────────────────┘
+            │                               │
+            └───────────────┬───────────────┘
+                            ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│                     Streamlit Dashboard                             │
+│        AI Insights  │  Charts Grid  │  Download HTML / PDF         │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
 ## Tech Stack
 
 | Layer | Technology |
