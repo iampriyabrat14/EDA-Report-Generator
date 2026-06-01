@@ -43,12 +43,19 @@ class StatsTool(BaseTool):
                         "correlation": round(corr_val, 4),
                     })
 
+        categorical_df = df.select_dtypes(include=["object", "category"])
+        value_counts = {
+            col: df[col].value_counts().head(5).to_dict()
+            for col in categorical_df.columns
+        }
+
         result = {
             "descriptive_stats": describe,
             "skewness": skewness,
             "kurtosis": kurt,
             "outlier_counts_zscore": outliers,
             "high_correlation_pairs": high_corr_pairs,
+            "categorical_value_counts": value_counts,
         }
 
         return str(result)
