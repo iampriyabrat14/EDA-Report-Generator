@@ -19,6 +19,9 @@ class DataLoaderTool(BaseTool):
         dtype_map = {col: str(dtype) for col, dtype in df.dtypes.items()}
         memory_mb = round(df.memory_usage(deep=True).sum() / 1024 / 1024, 4)
 
+        categorical_cols = df.select_dtypes(include=["object", "category"]).columns.tolist()
+        unique_counts = {col: int(df[col].nunique()) for col in categorical_cols}
+
         report = {
             "shape": {"rows": df.shape[0], "columns": df.shape[1]},
             "columns": list(df.columns),
@@ -30,6 +33,8 @@ class DataLoaderTool(BaseTool):
             },
             "duplicate_rows": int(df.duplicated().sum()),
             "memory_usage_mb": memory_mb,
+            "categorical_columns": categorical_cols,
+            "unique_value_counts": unique_counts,
             "sample_rows": df.head(3).to_dict(orient="records"),
         }
 
